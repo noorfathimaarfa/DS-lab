@@ -151,6 +151,7 @@ void display(NODE first)
   printf("%d\n",temp->info);
   }
 }
+
 NODE concat(NODE first,NODE second)
 {
  NODE cur;
@@ -180,12 +181,12 @@ NODE reverse(NODE first)
 
 void main()
 {
-int item,choice,key,n,i;
-NODE first=NULL,a,b;
+int item,choice,key,n,i,m;
+NODE first=NULL,a,b,third,forth;
 for(;;)
 {
 printf("\n1:Insert_front\n2:Delete_front\n3:Insert_rear\n4:Delete_rear\n");
-printf("5:Order_list\n6:Sort_list\n7:Display_list\n8:Concat\n9:Reverse\n10:Exit\n");
+printf("5:Order_list\n6:Sort_list\n7:Display_list\n8:Concat\n9:Reverse\n10:Stack\n11:Queue\n12:Exit\n");
 printf("Enter the choice\n");
 scanf("%d",&choice);
 switch(choice)
@@ -234,10 +235,75 @@ switch(choice)
    case 9:first=reverse(first);
 		 display(first);
 		 break;
-  case 10:exit(0);
+   case 10:
+   	
+   for(;;)
+   {
+   
+   printf("1:insert at front\n2:delete at front\n3:display\n4:Exit\n");
+   printf("enter the choice to stack an element\n");
+   scanf("%d",&choice);
+   switch(choice)
+   
+{
+
+   	case 1:
+   		printf("Enter an item to insert at front to form a stack\n");
+   		scanf("%d",&item);
+   		 first=insert_front(first, item);
+   	break;
+   		case 2:
+   		
+   		 first=delete_front(first);
+   	break;
+   		case 3:
+   	
+   		 display(first);
+   	break;
+   	 case 4:exit(0);
+	 break;
+	 default:printf("Invalid choice\n");
+	 break;
+}
+   	
+   }
+   case 11:
+   	for(;;)
+   {
+   
+   printf("1:insert at front\n2:delete at rear\n3:display\n4:Exit\n");
+   printf("enter the choice to Queue an element\n");
+   scanf("%d",&m);
+   switch(m)
+   
+{
+
+   	case 1:
+   		printf("Enter an item to insert at front end at queue\n");
+   		scanf("%d",&item);
+   		first=insert_front(first, item);
+   	break;
+   		case 2:
+   		
+   		 first=delete_rear(first);
+   	break;
+   		case 3:
+      	case 4:exit(0);
+	 break;
+   		 display(first);
+   	break;
+   	
+	 default:printf("Invalid choice\n");
+	 break;
+}
+   	
+   }
+  case 12:exit(0);
 	 break;
 	 default:printf("Invalid choice\n");
  }
+}
+
 }
 
 }
